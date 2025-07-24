@@ -17,7 +17,7 @@ A lightweight, extensible file upload and sharing API built in PHP with support 
 
 ## 📦 Installation
 
-git clone https://github.com/your-username/file-sharing-api.git
+git clone https://github.com/Lordeagle4/file-sharing-api.git
 cd file-sharing-api
 composer install
 
