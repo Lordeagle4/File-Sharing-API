@@ -1,0 +1,45 @@
+# Composer dependencies
+/vendor/
+
+# Application-specific
+/storage/uploads/
+/storage/temp/
+/storage/logs/
+/storage/cache/
+/storage/queue/
+/storage/*.sqlite
+
+# Environment configs
+.env
+#.env.*
+
+# PHPUnit
+.phpunit.result.cache
+tests/output/
+coverage/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs & editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Local test assets
+tests/test-image.jpg
+test_queued_upload.php
+test_direct_upload.php
+test*.php
+
+# Cache and lock files
+composer.lock
+npm-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
