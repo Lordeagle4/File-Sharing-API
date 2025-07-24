@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Core\Request;
 use App\Core\Response;
 use App\Services\FileService;
-use App\Services\UploadQueueService;
 
 class FileController
 {
@@ -51,6 +50,7 @@ class FileController
         'queue' => $queue,
         'user'  => $user,
         'type'  => $type,
+        'size' => $size,
     ];
 
     $result = $this->service->uploadFile($file, $options);
@@ -128,6 +128,7 @@ class FileController
 
     public function download(?string $accessCode): void
     {
+        dd($_ENV['APP_URL']);
         if (!$accessCode) {
             Request::require(['access_code'], 'get');
             $accessCode = Request::get('access_code');

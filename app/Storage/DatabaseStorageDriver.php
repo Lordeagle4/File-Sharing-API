@@ -105,4 +105,29 @@ class DatabaseStorageDriver implements StorageDriverInterface
         $stmt->execute([':id' => $jobId]);
         return $stmt->fetchColumn() ?: null;
     }
+
+    public function updateJobProgress(string $id, int $progress): void
+{
+    $stmt = $this->pdo->prepare("
+        UPDATE upload_jobs 
+        SET progress = :progress, updated_at = CURRENT_TIMESTAMP 
+        WHERE id = :id
+    ");
+
+    $stmt->execute([
+        ':progress' => max(0, min(100, $progress)),
+        ':id' => $id,
+    ]);
+}
+
+public function getJobProgress(string $jobId): ?int
+{
+    $stmt = $this->pdo->prepare("SELECT progress FROM upload_jobs WHERE id = :id");
+    $stmt->execute([':id' => $jobId]);
+
+    $value = $stmt->fetchColumn();
+    return $value !== false ? (int) $value : null;
+}
+
+
 }

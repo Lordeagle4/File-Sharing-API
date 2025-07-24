@@ -24,4 +24,9 @@ class SymlinkManager
             copy($actualFilePath, $symlinkPath);
         }
     }
+
+    public function cleanOldLinks():void
+    {
+        
+    }
 }
